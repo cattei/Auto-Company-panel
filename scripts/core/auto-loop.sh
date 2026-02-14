@@ -59,7 +59,13 @@ MAX_CONSECUTIVE_ERRORS="${MAX_CONSECUTIVE_ERRORS:-5}"
 COOLDOWN_SECONDS="${COOLDOWN_SECONDS:-300}"
 LIMIT_WAIT_SECONDS="${LIMIT_WAIT_SECONDS:-3600}"
 MAX_LOGS="${MAX_LOGS:-200}"
-RESOLVED_CODEX_BIN=""
+AUTO_LOOP_PROTECT_GITIGNORE="${AUTO_LOOP_PROTECT_GITIGNORE:-1}"
+RESOLVED_ENGINE_BIN=""
+
+if [ "$ENGINE" != "claude" ] && [ "$ENGINE" != "codex" ]; then
+    echo "Error: ENGINE must be 'claude' or 'codex' (received: '$ENGINE')."
+    exit 1
+fi
 
 # Keep Agent Teams compatibility for legacy prompts/config.
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
