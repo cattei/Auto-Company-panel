@@ -30,7 +30,7 @@ mkdir -p "$SYSTEMD_USER_DIR"
 
 cat > "$SERVICE_PATH" << EOF
 [Unit]
-Description=Auto Company Loop (Codex)
+Description=Auto Company Loop
 After=default.target
 
 [Service]
